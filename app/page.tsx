@@ -18,6 +18,8 @@ export default function Home() {
     });
     const data = await response.json();
 
+    console.log(data);
+
     setResult(data.result);
     setLoading(false);
   };
@@ -31,14 +33,16 @@ export default function Home() {
         </p>
       </div>
       <div className="mt-8">
-        <h2 className="pb-2 text-xl">I want a Cron job that runs</h2>
+        <h2 className="pb-3 text-xl">I want a Cron job that runs</h2>
         <Form generateCron={generateCron} />
-        <div className=" mt-8 flex items-center rounded-sm bg-neutral-800 px-2 py-5">
-          <div className="flex-1">
-            <p className="text-xl">0 0 * * *</p>
+        {result && (
+          <div className=" mt-8 flex items-center rounded-sm bg-neutral-800 px-2 py-5">
+            <div className="flex-1">
+              <p className="text-xl">{result}</p>
+            </div>
+            <div className="cursor-pointer text-sm">Copy</div>
           </div>
-          <div className="cursor-pointer">Copy</div>
-        </div>
+        )}
       </div>
     </main>
   );

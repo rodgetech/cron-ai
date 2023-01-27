@@ -10,7 +10,6 @@ export default function Form({ generateCron }: Props) {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const prompt = e.target.value;
-    console.log(prompt);
     setPrompt(prompt);
     generateCron(prompt);
   };
