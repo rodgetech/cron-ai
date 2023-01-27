@@ -23,17 +23,17 @@ export default function Home() {
   };
 
   return (
-    <main className="max-w-3xl m-auto p-4 text-white">
-      <div className="mt-8 pb-2 text-center border-b border-neutral-800">
+    <main className="m-auto max-w-3xl p-4 text-white">
+      <div className="mt-8 border-b border-neutral-800 pb-2 text-center">
         <h1 className="text-3xl">Cron AI</h1>
         <p className="tracking-wider text-neutral-400">
           Words to cron expression
         </p>
       </div>
       <div className="mt-8">
-        <h2 className="text-xl pb-2">I want a Cron job that runs</h2>
+        <h2 className="pb-2 text-xl">I want a Cron job that runs</h2>
         <Form generateCron={generateCron} />
-        <div className="mt-8 bg-neutral-800 rounded-sm px-2 py-5 flex items-center">
+        <div className=" mt-8 flex items-center rounded-sm bg-neutral-800 px-2 py-5">
           <div className="flex-1">
             <p className="text-xl">0 0 * * *</p>
           </div>
