@@ -27,7 +27,7 @@ export default function Form({ generateCron }: Props) {
       onChange={debouncedChangeHandler}
       type="text"
       placeholder="every 3 months, every hour, etc"
-      className="w-full rounded-sm bg-neutral-800 px-2 py-5 outline-none"
+      className="w-full rounded-md bg-neutral-800 px-2 py-5 outline-none"
       autoFocus
     />
   );
