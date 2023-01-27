@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import debounce from "lodash.debounce";
 
 type Props = {
@@ -15,7 +15,13 @@ export default function Form({ generateCron }: Props) {
     generateCron(prompt);
   };
 
-  const debouncedChangeHandler = useCallback(debounce(onChange, 400), []);
+  const debouncedChangeHandler = useMemo(() => debounce(onChange, 300), []);
+
+  useEffect(() => {
+    return () => {
+      debouncedChangeHandler.cancel();
+    };
+  }, []);
 
   return (
     <input
