@@ -2,12 +2,14 @@ lockfileVersion: 5.4
 
 specifiers:
   '@next/font': 13.1.5
+  '@types/lodash.debounce': ^4.0.7
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   autoprefixer: ^10.4.13
   eslint: 8.32.0
   eslint-config-next: 13.1.5
+  lodash.debounce: ^4.0.8
   next: 13.1.5
   postcss: ^8.4.21
   react: 18.2.0
@@ -22,12 +24,14 @@ dependencies:
   '@types/react-dom': 18.0.10
   eslint: 8.32.0
   eslint-config-next: 13.1.5_7uibuqfxkfaozanbtbziikiqje
+  lodash.debounce: 4.0.8
   next: 13.1.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   typescript: 4.9.4
 
 devDependencies:
+  '@types/lodash.debounce': 4.0.7
   autoprefixer: 10.4.13_postcss@8.4.21
   postcss: 8.4.21
   tailwindcss: 3.2.4_postcss@8.4.21
@@ -252,6 +256,16 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
+
+  /@types/lodash.debounce/4.0.7:
+    resolution: {integrity: sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
+    dev: true
 
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
@@ -1633,6 +1647,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
+    dev: false
+
+  /lodash.debounce/4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: false
 
   /lodash.merge/4.6.2:
