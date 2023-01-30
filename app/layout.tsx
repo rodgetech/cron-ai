@@ -16,7 +16,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className={`${inter.className} bg-neutral-900`}>{children}</body>
+      <body className={`${inter.className}  border-neutral-800 bg-neutral-900`}>
+        {children}
+      </body>
     </html>
   );
 }
