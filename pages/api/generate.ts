@@ -30,5 +30,5 @@ export default async function handler(
 function generatePrompt(data: Body) {
   const { prompt } = data;
 
-  return `Cron expression that runs ${prompt}`;
+  return `Generate a cron expression that runs ${prompt}`;
 }
