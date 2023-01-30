@@ -9,7 +9,6 @@ specifiers:
   autoprefixer: ^10.4.13
   eslint: 8.32.0
   eslint-config-next: 13.1.5
-  lodash.debounce: ^4.0.8
   next: 13.1.5
   openai: ^3.1.0
   postcss: ^8.4.21
@@ -27,7 +26,6 @@ dependencies:
   '@types/react-dom': 18.0.10
   eslint: 8.32.0
   eslint-config-next: 13.1.5_7uibuqfxkfaozanbtbziikiqje
-  lodash.debounce: 4.0.8
   next: 13.1.5_biqbaboplfbrettd7655fr4n2y
   openai: 3.1.0
   react: 18.2.0
@@ -1696,10 +1694,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
-    dev: false
-
-  /lodash.debounce/4.0.8:
-    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: false
 
   /lodash.merge/4.6.2:

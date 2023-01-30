@@ -34,15 +34,7 @@ export default function Home() {
       </div>
       <div className="mt-12">
         <h2 className="pb-3 text-xl">I want a Cron job that runs</h2>
-        <Form generateCron={generateCron} />
-        {result && (
-          <div className=" mt-8 flex items-center rounded-md bg-neutral-800 px-2 py-5">
-            <div className="flex-1">
-              <p className="text-xl">{result}</p>
-            </div>
-            <div className="cursor-pointer text-sm">Copy</div>
-          </div>
-        )}
+        <Form generateCron={generateCron} result={result} />
       </div>
     </main>
   );
