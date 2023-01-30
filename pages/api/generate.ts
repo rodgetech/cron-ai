@@ -21,14 +21,19 @@ export default async function handler(
     top_p: 1.0,
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
-    stop: ["#", ";"],
+    stop: [":"],
   });
+
+  console.log("response", response.data);
 
   res.status(200).json({ result: response.data.choices[0].text });
 }
 
 function generatePrompt(data: Body) {
-  const { prompt } = data;
-
-  return `Generate a cron expression that runs ${prompt}`;
+  const prompt = `
+  Generate a cron expression using the following requirements.
+  Requirements: A cron that runs ${data.prompt}
+  Result:
+  `;
+  return prompt;
 }
