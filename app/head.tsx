@@ -7,6 +7,7 @@ export default function Head() {
         name="keywords"
         content="AI, cron, cron expression, cron expression generator"
       />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </>
   );
 }
