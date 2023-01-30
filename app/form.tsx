@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 type Props = {
   generateCron: (prompt: string) => void;
@@ -7,6 +7,8 @@ type Props = {
 };
 
 export default function Form({ generateCron, result, loading }: Props) {
+  const [copied, setCopied] = useState(false);
+
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
@@ -14,6 +16,14 @@ export default function Form({ generateCron, result, loading }: Props) {
     };
     const prompt = target.prompt.value;
     generateCron(prompt);
+  };
+
+  const handleCopy = () => {
+    setCopied(true);
+    if (result) navigator.clipboard.writeText(result);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
   };
 
   return (
@@ -31,7 +41,18 @@ export default function Form({ generateCron, result, loading }: Props) {
             <div className="flex-1">
               <p className="text-xl">{result}</p>
             </div>
-            <div className="cursor-pointer text-sm">Copy</div>
+            <div>
+              {!copied && (
+                <div className="cursor-pointer text-sm" onClick={handleCopy}>
+                  Copy
+                </div>
+              )}
+              {copied ? (
+                <div>
+                  <p className="ml-2 text-sm text-green-600">Copied</p>
+                </div>
+              ) : null}
+            </div>
           </div>
         )}
         <button
