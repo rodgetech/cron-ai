@@ -9,6 +9,7 @@ export default function Home() {
 
   const generateCron = async (prompt: string) => {
     setLoading(true);
+
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -17,8 +18,6 @@ export default function Home() {
       body: JSON.stringify({ prompt }),
     });
     const data = await response.json();
-
-    console.log(data);
 
     setResult(data.result);
     setLoading(false);
@@ -34,7 +33,7 @@ export default function Home() {
       </div>
       <div className="mt-12">
         <h2 className="pb-3 text-xl">I want a Cron job that runs</h2>
-        <Form generateCron={generateCron} result={result} />
+        <Form generateCron={generateCron} result={result} loading={loading} />
       </div>
     </main>
   );

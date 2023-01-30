@@ -3,9 +3,10 @@ import { FormEvent } from "react";
 type Props = {
   generateCron: (prompt: string) => void;
   result?: string;
+  loading: boolean;
 };
 
-export default function Form({ generateCron, result }: Props) {
+export default function Form({ generateCron, result, loading }: Props) {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
@@ -34,8 +35,9 @@ export default function Form({ generateCron, result }: Props) {
           </div>
         )}
         <button
+          disabled={loading}
           type="submit"
-          className="mt-4 w-full rounded-md bg-neutral-700 px-8 py-2.5 text-base  text-white hover:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-zinc-600"
+          className="mt-4 w-full rounded-md bg-neutral-700 px-8 py-2.5 text-base  text-white hover:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-zinc-600 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Done
         </button>
