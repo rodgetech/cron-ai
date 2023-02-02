@@ -24,15 +24,15 @@ export default async function handler(
     stop: [":"],
   });
 
-  console.log("response", response.data);
-
   res.status(200).json({ result: response.data.choices[0].text });
 }
 
 function generatePrompt(data: Body) {
   const prompt = `
   Generate a cron expression using the following requirements.
-  Requirements: A cron that runs ${data.prompt}
+  Requirements: A cron that runs ${data.prompt}.
+  The generated cron expression most also match the following regular expression:
+  Regex: /(@(annually|yearly|monthly|weekly|daily|hourly|reboot))|(@every (\d+(ns|us|µs|ms|s|m|h))+)|((((\d+,)+\d+|(\d+(\/|-)\d+)|\d+|\*) ?){5,7})/
   Result:
   `;
   return prompt;
