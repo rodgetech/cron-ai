@@ -1,7 +1,7 @@
 
 # Cron-AI
 
-Introducing the AI Cron Job Code Generator - a cutting-edge app that uses advanced AI algorithms to generate optimized cron job codes in seconds. 
+Introducing the AI Cron Job Code Generator - a cutting-edge app that uses advanced AI algorithms to generate optimized cron job codes in seconds. This Job is powered by an AI itself OpenAI GPT-3 API (specifically, text-davinci-003), so a Shouout and Thanks to them
 ## Screenshots
 
 ![App Screenshot](desktop.png)
@@ -22,7 +22,7 @@ For Linux and MacOS
  sudo git clone https://github.com/rodgetech/cron-ai.git
 ```
 
-Run the Dev Server for Instant Openign
+Run the Dev Server for Instant Opening
 ```bash
  npm run dev
 ```
