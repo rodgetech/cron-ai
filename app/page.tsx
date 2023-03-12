@@ -1,7 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 import Form from "./form";
+
+const showErrorToast = () =>
+  toast("Failed to generate cron", {
+    icon: "❌",
+    position: "top-right",
+    style: {
+      borderRadius: "10px",
+      background: "#27272a",
+      color: "#fff",
+    },
+  });
 
 export default function Home() {
   const [result, setResult] = useState("");
@@ -9,18 +21,24 @@ export default function Home() {
 
   const generateCron = async (prompt: string) => {
     setLoading(true);
+    try {
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt }),
+      });
+      const data = await response.json();
 
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt }),
-    });
-    const data = await response.json();
+      if (data.error) throw new Error();
 
-    setResult(data.result);
-    setLoading(false);
+      setResult(data.result);
+    } catch (err) {
+      showErrorToast();
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -35,6 +53,7 @@ export default function Home() {
         <h2 className="pb-3 text-xl">I want a Cron job that runs</h2>
         <Form generateCron={generateCron} result={result} loading={loading} />
       </div>
+      <Toaster />
     </main>
   );
 }

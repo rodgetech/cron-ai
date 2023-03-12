@@ -4,7 +4,6 @@ import {
   SystemMessagePromptTemplate,
   ChatPromptTemplate,
 } from "langchain/prompts";
-import { backOff } from "exponential-backoff";
 
 type Body = {
   prompt: string;
@@ -12,7 +11,11 @@ type Body = {
 
 const chat = new ChatOpenAI({
   temperature: 0,
+  frequencyPenalty: 0.0,
+  presencePenalty: 0.0,
+  topP: 1.0,
   openAIApiKey: process.env.OPENAI_API_KEY,
+  maxRetries: 3,
 });
 
 export default async function handler(
@@ -22,7 +25,7 @@ export default async function handler(
   const data = req.body as Body;
 
   try {
-    const response = await backOff(() => generateCron(data.prompt));
+    const response = await generateCron(data.prompt);
     return res.status(200).json({ result: response, error: null });
   } catch (error) {
     console.log(error);
