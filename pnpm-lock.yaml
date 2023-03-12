@@ -10,6 +10,7 @@ specifiers:
   autoprefixer: ^10.4.14
   eslint: 8.32.0
   eslint-config-next: 13.1.5
+  exponential-backoff: ^3.1.1
   langchain: ^0.0.28
   next: 13.2.4
   openai: ^3.2.1
@@ -30,6 +31,7 @@ dependencies:
   '@vercel/analytics': 0.1.11_react@18.2.0
   eslint: 8.32.0
   eslint-config-next: 13.1.5_7uibuqfxkfaozanbtbziikiqje
+  exponential-backoff: 3.1.1
   langchain: 0.0.28
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   openai: 3.2.1

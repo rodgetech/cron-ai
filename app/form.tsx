@@ -60,7 +60,7 @@ export default function Form({ generateCron, result, loading }: Props) {
           type="submit"
           className="mt-4 w-full rounded-md bg-neutral-700 px-8 py-2.5 text-base  text-white hover:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-zinc-600 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Done
+          {loading ? "Generating" : "Done"}
         </button>
       </div>
     </form>
