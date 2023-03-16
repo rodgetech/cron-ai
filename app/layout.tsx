@@ -20,7 +20,7 @@ export default function RootLayout({
       */}
       <head />
       <body
-        className={`${inter.className} flex h-screen flex-col border-neutral-800 bg-neutral-900`}
+        className={`${inter.className} h-screen border-neutral-800 bg-neutral-900`}
       >
         <div className="flex-1">{children}</div>
         <AnalyticsWrapper />
