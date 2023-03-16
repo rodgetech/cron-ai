@@ -2,7 +2,7 @@ import "./globals.css";
 
 import { Inter } from "@next/font/google";
 import { AnalyticsWrapper } from "./components/analytics";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,20 +19,28 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className={`${inter.className}  border-neutral-800 bg-neutral-900`}>
-        {children}
+      <body
+        className={`${inter.className} flex h-screen flex-col border-neutral-800 bg-neutral-900`}
+      >
+        <div className="flex-1">{children}</div>
         <AnalyticsWrapper />
+        <footer className="flex justify-center gap-6 py-12">
+          <Link
+            href="https://twitter.com/rodgetech"
+            target="_blank"
+            className="text-neutral-600"
+          >
+            <FaTwitter fontSize={26} />
+          </Link>
+          <Link
+            href="https://github.com/rodgetech/cron-ai"
+            target="_blank"
+            className="text-neutral-600"
+          >
+            <FaGithub fontSize={26} />
+          </Link>
+        </footer>
       </body>
-      <footer className="mt-12 flex justify-center">
-        <Link
-          href="https://github.com/rodgetech/cron-ai"
-          target="_blank"
-          className="flex items-center space-x-2 text-neutral-600"
-        >
-          <FaGithub fontSize={24} />
-          <span>View code</span>
-        </Link>
-      </footer>
     </html>
   );
 }

@@ -32,7 +32,7 @@ export default function Home() {
         </p>
       </div>
       <div className="mt-12">
-        <h2 className="pb-3 text-xl">I want a Cron job that runs</h2>
+        <h2 className="pb-3 text-xl">I want a Cron job that runs:</h2>
         <Form generateCron={generateCron} result={result} loading={loading} />
       </div>
     </main>
