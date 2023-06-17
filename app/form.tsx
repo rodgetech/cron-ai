@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 type Props = {
   generateCron: (prompt: string) => void;
@@ -8,14 +8,20 @@ type Props = {
 
 export default function Form({ generateCron, result, loading }: Props) {
   const [copied, setCopied] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const target = e.target as typeof e.target & {
-      prompt: { value: string };
-    };
-    const prompt = target.prompt.value;
-    generateCron(prompt);
+  const handleSubmit = () => {
+    generateCron(inputValue);
+  };
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
   };
 
   const handleCopy = () => {
@@ -27,10 +33,13 @@ export default function Form({ generateCron, result, loading }: Props) {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <>
       <div className="space-y-6">
         <input
           name="prompt"
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
           type="text"
           placeholder="every hour, every day, every 3 months, etc"
           className="w-full rounded-md bg-neutral-800 px-2 py-5 outline-none"
@@ -56,13 +65,14 @@ export default function Form({ generateCron, result, loading }: Props) {
           </div>
         )}
         <button
-          disabled={loading}
+          onClick={handleSubmit}
+          disabled={!inputValue || loading}
           type="submit"
           className="mt-4 w-full rounded-md bg-neutral-700 px-8 py-2.5 text-base  text-white hover:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-zinc-600 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Done
         </button>
       </div>
-    </form>
+    </>
   );
 }
