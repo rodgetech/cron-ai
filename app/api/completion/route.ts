@@ -1,34 +1,26 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { openai } from "../../utils/openai";
+import { Configuration, OpenAIApi } from "openai-edge";
+import { OpenAIStream, StreamingTextResponse } from "ai";
 
-type Body = {
-  prompt: string;
-};
+const config = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(config);
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const data = req.body as Body;
+export const runtime = "edge";
 
-  const prompt = generatePrompt(data);
+export async function POST(req: Request) {
+  const { prompt } = await req.json();
 
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt,
     temperature: 0,
     max_tokens: 150,
     top_p: 1.0,
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
     stop: [":"],
-  });
-
-  res.status(200).json({ result: response.data.choices[0].text });
-}
-
-function generatePrompt(data: Body) {
-  const prompt = `
+    stream: true,
+    prompt: `
     Below is text describing a cron expression.
     Your goal is to:
     - Convert the text to a valid cron expression.
@@ -40,8 +32,13 @@ function generatePrompt(data: Body) {
     - Text: A cron that runs ever 12 hour
     - Cron: 0 */12 * * *
     Below is the text:
-    TEXT: A cron that runs ${data.prompt}
+    TEXT: A cron that runs ${prompt}
     YOUR RESPONSE:
-  `;
-  return prompt;
+  `,
+  });
+
+  // Convert the response into a friendly text-stream
+  const stream = OpenAIStream(response);
+  // Respond with the stream
+  return new StreamingTextResponse(stream);
 }
