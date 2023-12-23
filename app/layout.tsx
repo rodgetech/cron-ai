@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import { AnalyticsWrapper } from "./components/analytics";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import Link from "next/link";

@@ -6,6 +6,7 @@ import { useCompletion } from "ai/react";
 export default function Home() {
   const { completion, input, isLoading, handleInputChange, handleSubmit } =
     useCompletion();
+    
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {

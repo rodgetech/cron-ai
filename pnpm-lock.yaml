@@ -8,9 +8,6 @@ dependencies:
   '@next/codemod':
     specifier: ^14.0.4
     version: 14.0.4(@babel/preset-env@7.23.6)
-  '@next/font':
-    specifier: 14.0.4
-    version: 14.0.4(next@14.0.4)
   '@types/node':
     specifier: 20.10.5
     version: 20.10.5
@@ -1510,14 +1507,6 @@ packages:
     resolution: {integrity: sha512-U3qMNHmEZoVmHA0j/57nRfi3AscXNvkOnxDmle/69Jz/G0o/gWjXTDdlgILZdrxQ0Lw/jv2mPW8PGy0EGIHXhQ==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/font@14.0.4(next@14.0.4):
-    resolution: {integrity: sha512-anSlBJxaSlJ2S1mhfN/zddg8RsWvUCS6vMn9Sqjem3EukD6Z44lsj1lwXFdifUgwsJvw5Uf8MKupksAfRmDbeQ==}
-    peerDependencies:
-      next: '*'
-    dependencies:
-      next: 14.0.4(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
   /@next/swc-darwin-arm64@14.0.4:
