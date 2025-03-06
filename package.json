@@ -12,16 +12,16 @@
     "node": ">=16"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^1.2.1",
     "@next/codemod": "^14.0.4",
     "@types/node": "20.10.5",
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.18",
     "@vercel/analytics": "^1.1.1",
-    "ai": "^2.2.30",
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4",
     "next": "14.0.4",
-    "openai": "^4.24.1",
+    "openai": "^4.86.2",
     "openai-edge": "^1.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
