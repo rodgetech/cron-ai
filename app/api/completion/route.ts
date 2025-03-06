@@ -18,7 +18,8 @@ async function validateWithGPT(prompt: string): Promise<{ isValid: boolean; reas
           content: `You are a validator that determines if a user's prompt is related to generating cron expressions or scheduling tasks.
           
           Return a JSON object with two fields:
-          1. "isValid": boolean - true if the prompt is asking about creating a cron expression or scheduling, false otherwise
+          1. "isValid": boolean - true if the prompt is asking about creating a cron expression or scheduling, false otherwise. It should also be
+          false if the prompt is asking to generate an invalid cron expression.
           2. "reason": string - a brief explanation of your decision
           
           Examples of valid prompts:
