@@ -115,6 +115,21 @@ export default function Home() {
           </div>
         </form>
       </div>
+      
+      <footer className="mt-16 border-t border-neutral-800 pt-8 text-center">
+        <p className="text-neutral-400">
+          I also made{" "}
+          <a 
+            href="https://screenmockups.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className=" hover:text-neutral-300 underline"
+          >
+            Screen Mockups
+          </a>{" "}
+          if you&apos;re into generating beautiful app designs
+        </p>
+      </footer>
     </main>
   );
 }
